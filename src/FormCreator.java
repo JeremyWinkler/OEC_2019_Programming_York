@@ -47,7 +47,7 @@ public class FormCreator {
 				+ "    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n"
 				+ "    <meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\">\n"
 				+ "    <title>Self Patient Registration Module</title>\n" + "</head>\n" + "\n" + "<body>\n"
-				+ "    <form action=\"\">\n" + "        First name:<br>\n"
+				+ "    <form action=\"http://localhost:4320\">\n" + "        First name:<br>\n"
 				+ "        <input type=\"text\" name=\"firstname\">\n" + "        <br>\n" + "        Last name:<br>\n"
 				+ "        <input type=\"text\" name=\"lastname\">\n" + "        <br>\n"
 				+ "        Date of Birth:<br>\n"
