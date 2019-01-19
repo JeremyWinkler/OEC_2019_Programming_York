@@ -13,6 +13,7 @@
 //package je3.net;
 
 import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
@@ -41,11 +42,21 @@ public class HttpMirror {
         BufferedReader in = new BufferedReader(new InputStreamReader(client.getInputStream()));
         PrintWriter out = new PrintWriter(client.getOutputStream());
 
+        BufferedReader html_in = new BufferedReader(new FileReader("Form.html"));
         // Start sending our reply, using the HTTP 1.1 protocol
-        out.print("HTTP/1.1 200 \r\n"); // Version & status code
-        out.print("Content-Type: text/plain\r\n"); // The type of data
-        out.print("Connection: close\r\n"); // Will close stream
-        out.print("\r\n"); // End of headers
+        
+        String html;
+        out.println("HTTP/1.1 200 OK");
+        out.println("Content-Type: text/html");
+        out.println("\r\n");
+        while((html = html_in.readLine()) != null) out.print(html);
+        
+//        out.print("HTTP/1.1 200 \r\n"); // Version & status code
+//        out.print("Content-Type: text/plain\r\n"); // The type of data
+//        out.print("Connection: close\r\n"); // Will close stream
+//        out.print("\r\n"); // End of headers
+        
+        
 
         // Now, read the HTTP request from the client, and send it
         // right back to the client as part of the body of our
@@ -59,7 +70,7 @@ public class HttpMirror {
         while ((line = in.readLine()) != null) {
           if (line.length() == 0)
             break;
-          out.print(line + "\r\n");
+          //out.print(line + "\r\n");
         }
 
         // Close socket, breaking the connection to the client, and
