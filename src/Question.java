@@ -1,15 +1,21 @@
+import java.util.ArrayList;
 
-public class Question {
-	public String q; // Question
-	public String a; // Answer
-//	public int answerType;
-	
-	public Question (String question) {
-		q = question;
-		a = "";
+public class Question extends Answer {
+	public String longQuestion;
+	public ArrayList<Answer> answer;
+	public String data;
+	public boolean multipleChoices;
+
+	public Question(String longQuestion, String data, boolean multipleChoices) {
+		this.longQuestion = longQuestion;
+		this.data = data;
+		answer = new ArrayList<Answer>();
+		this.multipleChoices = multipleChoices;
 	}
-	
-	public void setAnswer (String answer) {
-		a = answer;
+
+	public void addAnswer(String a, int w) {
+		Answer ans = new Answer(a, w);
+		answer.add(ans);
 	}
+
 }
