@@ -5,24 +5,43 @@ import java.util.ArrayList;
 
 public class FormCreator {
 
-	PrintWriter out;
+	// PrintWriter out;
+	FileWriter write = new FileWriter("./Form.html", false);
+	PrintWriter print = new PrintWriter(write);
+    String fileContents = "";
 
-	protected FormCreator() throws IOException {
-		out = new PrintWriter(new FileWriter("./Form.html"));
-	}
+    public FormCreator() throws IOException {
+    	
+    }
+    
+//	public FormCreator() throws IOException {
+//		try {
+//			// Whatever the file path is.
+//			form = new File("./Form.html");
+//			outputStream = new FileOutputStream(form);
+//			outputStreamWriter = new OutputStreamWriter(outputStream);
+//			w = new BufferedWriter(outputStreamWriter);
+//
+//		} catch (IOException e) {
+//			System.err.println("Problem writing to the file statsTest.txt");
+//		}
+//		// out = new PrintWriter("./Form.txt", "UTF-8");
+//	}
 
-	private String addQuestion(Question question) {
-		
-		out.println(question.longQuestion + "\n");
-		for(Answer ans : question.answer) {
-			out.println("<input type=\"radio\" name=\"" + question.data + "\" value=\"" + ans.answer + "\"> " + ans.answer + "<br>");
+	private void addQuestion(Question question) throws IOException {
+
+		fileContents += question.longQuestion + "\n";
+		String inputType = (question.multipleChoices) ? "checkbox" : "radio";
+
+		for (Answer ans : question.answer) {
+			fileContents += "<input type=\"" + inputType + "\" name=\"" + question.data + "\" value=\"" + ans.answer + "\"> "
+					+ ans.answer + "<br>\n";
 		}
-		return null;
 	}
 
-	protected void printForm(ArrayList<Question> questions) {
-		
-		out.println("<!DOCTYPE html>\n" + "<html lang=\"en\">\n" + "\n" + "<head>\n" + "    <meta charset=\"UTF-8\">\n"
+	public void printForm(ArrayList<Question> questions) throws IOException {
+
+		fileContents += "<!DOCTYPE html>\n" + "<html lang=\"en\">\n" + "\n" + "<head>\n" + "    <meta charset=\"UTF-8\">\n"
 				+ "    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n"
 				+ "    <meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\">\n"
 				+ "    <title>Self Patient Registration Module</title>\n" + "</head>\n" + "\n" + "<body>\n"
@@ -44,12 +63,14 @@ public class FormCreator {
 				+ "        Family Doctor Name:<br>\n" + "        <input type=\"text\" name=\"lastname\">\n"
 				+ "        <br>\n" + "        Family Doctor City:<br>\n"
 				+ "        <input type=\"text\" name=\"lastname\">\n" + "        <br>\n" + "\n"
-				+ "        <input type=\"submit\" value=\"Submit\">\n");
+				+ "        <input type=\"submit\" value=\"Submit\">\n";
 
-		// Printing triage questions here
+		for (Question q : questions)
+			addQuestion(q);
 
-		out.println("</form>" + "</body>\n" + "\n" + "</html>");
-		out.close();
+		fileContents += "</form>" + "</body>\n" + "\n" + "</html>";
+		print.printf("%s" + "%n", fileContents);
+		print.close();
 	}
 
 }
