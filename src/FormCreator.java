@@ -53,18 +53,18 @@ public class FormCreator {
 				+ "        Date of Birth:<br>\n"
 				+ "        <input type=\"date\" id=\"date-of-birth\" name=\"date-of-birth\" value=\"2018-07-22\" min=\"1918-01-01\" max=\"2018-12-31\">\n"
 				+ "        <br>\n" + "        Street Address:<br>\n"
-				+ "        <input type=\"text\" name=\"lastname\">\n" + "        <br>\n" + "        City:<br>\n"
-				+ "        <input type=\"text\" name=\"lastname\">\n" + "        <br>\n" + "        State:<br>\n"
-				+ "        <input type=\"text\" name=\"lastname\">\n" + "        <br>\n" + "        Postal Code:<br>\n"
-				+ "        <input type=\"text\" name=\"lastname\">\n" + "        <br>\n"
-				+ "        Health Card Number:<br>\n" + "        <input type=\"text\" name=\"lastname\">\n"
-				+ "        <br>\n" + "        Cell Phone:<br>\n" + "        <input type=\"text\" name=\"lastname\">\n"
+				+ "        <input type=\"text\" name=\"street-add\">\n" + "        <br>\n" + "        City:<br>\n"
+				+ "        <input type=\"text\" name=\"city\">\n" + "        <br>\n" + "        Province:<br>\n"
+				+ "        <input type=\"text\" name=\"province\">\n" + "        <br>\n" + "        Postal Code:<br>\n"
+				+ "        <input type=\"text\" name=\"postal\">\n" + "        <br>\n"
+				+ "        Health Card Number:<br>\n" + "        <input type=\"text\" name=\"health-card\">\n"
+				+ "        <br>\n" + "        Cell Phone:<br>\n" + "        <input type=\"text\" name=\"cell-phone\">\n"
 				+ "        <br>\n" + "        Email Address:<br>\n"
-				+ "        <input type=\"text\" name=\"lastname\">\n" + "        <br>\n" + "        Race:<br>\n"
-				+ "        <input type=\"text\" name=\"lastname\">\n" + "        <br>\n"
-				+ "        Family Doctor Name:<br>\n" + "        <input type=\"text\" name=\"lastname\">\n"
+				+ "        <input type=\"text\" name=\"email\">\n" + "        <br>\n" + "        Race:<br>\n"
+				+ "        <input type=\"text\" name=\"race\">\n" + "        <br>\n"
+				+ "        Family Doctor Name:<br>\n" + "        <input type=\"text\" name=\"fam-doctor\">\n"
 				+ "        <br>\n" + "        Family Doctor City:<br>\n"
-				+ "        <input type=\"text\" name=\"lastname\">\n" + "        <br>\n" + "\n";
+				+ "        <input type=\"text\" name=\"fam-doctor-city\">\n" + "        <br>\n" + "\n";
 			
 
 		for (Question q : questions)
