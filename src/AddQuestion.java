@@ -1,4 +1,5 @@
 
+import java.awt.Dimension;
 import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -6,6 +7,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import com.sun.javafx.tk.Toolkit;
+import java.awt.Font; 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
@@ -24,17 +27,21 @@ public class AddQuestion extends JFrame {
 		JTextField textField2 = new JTextField("Write your answer here");
 		String currentPattern;
 		int currentSel;
-	
+		 
 
 		JPanel mainPanel = new JPanel();
-		setSize(800, 1000);
+		setSize(3000, 3000);
 		setContentPane(mainPanel);
 		mainPanel.setLayout(layout);
-
-		mainPanel.add(new JLabel("What is your question"));
+	
+		Font font = new Font("Monospaced", Font.PLAIN, 30);
+		Font font2 = new Font("Monospaced", Font.PLAIN, 19);
+		JLabel label1 = new JLabel("What is your question");
+		mainPanel.add(label1);
 		mainPanel.add(textField);
-
-		mainPanel.add(new JLabel("Short Version of the Question"));
+		
+		JLabel label2 = new JLabel("Short version of the Question");
+		mainPanel.add(label2);
 		mainPanel.add(textField2);
 
 		String[] options = { "Multiple Choice", "Checklist" };
@@ -66,9 +73,9 @@ public class AddQuestion extends JFrame {
 			}
 		});
 		mainPanel.add(button);
-
+	
 		JPanel panel = new JPanel();
-		setSize(800, 1000);
+		setSize(2000, 2000);
 		setContentPane(panel);
 		panel.setLayout(layout1);
 		panel.add(mainPanel);
@@ -89,6 +96,13 @@ public class AddQuestion extends JFrame {
 			}
 		});
 		panel.add(button2);
+		textField.setFont(font);
+		textField2.setFont(font);
+		label1.setFont(font2);
+		label2.setFont(font2);
+		button.setFont(font);
+		button2.setFont(font);
+		patternList.setFont(font);
 	}
 
 	public static void main(String[] args) {
