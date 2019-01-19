@@ -1,3 +1,4 @@
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -6,11 +7,12 @@ import java.util.ArrayList;
 public class FormCreator {
 
 	// PrintWriter out;
-	FileWriter write = new FileWriter("./Form.html", false);
-	PrintWriter print = new PrintWriter(write);
+	FileWriter write;
+	PrintWriter print;
     String fileContents = "";
 
     public FormCreator() throws IOException {
+    	File file = new File("Form.html");
     	
     }
     
@@ -30,7 +32,7 @@ public class FormCreator {
 
 	private void addQuestion(Question question) throws IOException {
 
-		fileContents += question.longQuestion + "\n";
+		fileContents += question.longQuestion + "<br>\n";
 		String inputType = (question.multipleChoices) ? "checkbox" : "radio";
 
 		for (Answer ans : question.answer) {
@@ -62,14 +64,17 @@ public class FormCreator {
 				+ "        <input type=\"text\" name=\"lastname\">\n" + "        <br>\n"
 				+ "        Family Doctor Name:<br>\n" + "        <input type=\"text\" name=\"lastname\">\n"
 				+ "        <br>\n" + "        Family Doctor City:<br>\n"
-				+ "        <input type=\"text\" name=\"lastname\">\n" + "        <br>\n" + "\n"
-				+ "        <input type=\"submit\" value=\"Submit\">\n";
+				+ "        <input type=\"text\" name=\"lastname\">\n" + "        <br>\n" + "\n";
+			
 
 		for (Question q : questions)
 			addQuestion(q);
-
+		
+		fileContents +=  "        <input type=\"submit\" value=\"Submit\">\n";
 		fileContents += "</form>" + "</body>\n" + "\n" + "</html>";
-		print.printf("%s" + "%n", fileContents);
+		write = new FileWriter("Form.html", false);
+    	print = new PrintWriter(write);
+		print.print(fileContents);
 		print.close();
 	}
 
