@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <form action="">
+    <form action="http://localhost:4320">
         First name:<br>
         <input type="text" name="firstname">
         <br>
@@ -51,10 +51,11 @@
         <br>
 
         <input type="submit" class="submit" value="Submit">
+    </form>
     <script>
         var text = "This is a test";
         var x = new XHTMLHttpRequest(); //4321
-        x.open("POST", "http://localhost:6379");
+        x.open("POST", "http://localhost:4320");
         
         var button = document.querySelector(".submit");
         

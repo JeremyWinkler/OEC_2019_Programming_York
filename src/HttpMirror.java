@@ -68,9 +68,16 @@ public class HttpMirror {
         // works with Unix, Windows, and Mac line terminators.
         String line;
         while ((line = in.readLine()) != null) {
+//        	System.out.println(line);
           if (line.length() == 0)
             break;
-          //out.print(line + "\r\n");
+          if (line.contains("GET /?firstname")) {
+        	  line = line.substring(6);
+        	  String[] s = line.split("&");
+        	  for (int i = 0; i < s.length; i++) {
+        		  System.out.println(s[i]);
+        	  }
+          }
         }
 
         // Close socket, breaking the connection to the client, and

@@ -1,3 +1,4 @@
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -19,11 +20,13 @@ public class AddAnswer extends JFrame {
 		setSize(800, 1000);
 		setContentPane(panel);
 		panel.setLayout(layout);
-
-		panel.add(new JLabel("What is your answer"));
+		
+		Font font = new Font("Monospaced", Font.PLAIN, 28);
+		Font font2 = new Font("Monospaced", Font.PLAIN, 17);
+		panel.add(label);
 		panel.add(textField);
-
-		panel.add(new JLabel("What is your value to the question"));
+		JLabel label2= new JLabel("What is your value to the question?");
+		panel.add(label2);
 		panel.add(textField2);
 
 		JButton button = new JButton("Add");
@@ -40,7 +43,7 @@ public class AddAnswer extends JFrame {
 		panel.add(button);
 
 		JPanel mainPanel = new JPanel();
-		setSize(800, 1000);
+		setSize(2000, 2000);
 		setContentPane(mainPanel);
 		mainPanel.setLayout(layout1);
 		mainPanel.add(panel);
@@ -54,5 +57,12 @@ public class AddAnswer extends JFrame {
 			}
 });
 		mainPanel.add(button2);
+		label.setFont(font); 
+		label2.setFont(font2);
+		textField.setFont(font);
+		textField2.setFont(font);
+		button.setFont(font);
+		button2.setFont(font);
+		
 	}
 }
