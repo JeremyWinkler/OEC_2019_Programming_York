@@ -25,7 +25,12 @@ public class Server {
                 new InputStreamReader(
                 clientSocket.getInputStream()));
         String inputLine;
-
+        
+        out.print("HTTP/1.1 200 \r\n"); // Version & status code
+        out.print("Content-Type: text/plain\r\n"); // The type of data
+        out.print("Connection: close\r\n"); // Will close stream
+        out.print("\r\n"); // End of headers
+        
         while (true) {
         	try{
                 inputLine = in.readLine();
