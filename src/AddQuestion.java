@@ -1,50 +1,44 @@
-import java.awt.Color;
+
 import java.awt.GridLayout;
-import java.awt.TextField;
-import java.awt.event.ActionEvent;
-import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class AddQuestion extends JFrame {
 
-	protected JFrame window;
-	protected JPanel panel;
-	protected JButton button;
-	private JTextField textField1;
+	GridLayout layout = new GridLayout(1, 5);
+	JLabel label = new JLabel("What is your question?");
+	JTextField textField = new JTextField("Write your answer here");
+	JTextField textField2 = new JTextField("Write your answer here");
 
-	protected int BORDER_SIZE = 1;
-
-	private int WINDOW_SIZE = 200;
-	private int BUTTON_SIZE = 100;
-
-	public void createGUI() {
-		JPanel p = new JPanel();
-		p.setLayout(new BoxLayout(p, BoxLayout.Y_AXIS));
-
-		String label = "What is the question";
-		JLabel l1 = new JLabel(label, JLabel.TRAILING);
-		textField1 = new JTextField(10);
-		l1.setLabelFor(textField1);
-		p.add(textField1);
-
-        button = new JButton("Blink");
-        button.setSize(BUTTON_SIZE, BUTTON_SIZE / 2);
-        button.setActionCommand("Button1");
-        button.addActionListener(this);
-        button.setVisible(true);
-        
-		p.setSize(500, 200);
-		p.setVisible(true);
+	public AddQuestion() {
+		JPanel mainPanel = new JPanel();
+		setSize(300, 200);
+		setContentPane(mainPanel);
+		mainPanel.setLayout(layout);
 		
-
-
+		mainPanel.add(new JLabel("What is your question"));
+		mainPanel.add(textField);
+		
+		mainPanel.add(new JLabel("Short Version of the Question"));
+		mainPanel.add(textField2 );
+		
+		JButton button = new JButton("Add");
+		 button.setActionCommand("Button1");
+		 
+		 button.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					Question q = new Question(textField.getText(),textField2.getText());
+				}
+	});
+		 mainPanel.add(button);
 	}
 
-	public static void main(String []args) {
+	public static void main(String[] args) {
 		AddQuestion ex = new AddQuestion();
 		ex.setVisible(true);
 	}
