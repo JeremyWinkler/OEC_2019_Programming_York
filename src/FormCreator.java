@@ -7,20 +7,21 @@ public class FormCreator {
 
 	PrintWriter out;
 
-	protected FormCreator() throws IOException {
+	public FormCreator() throws IOException {
 		out = new PrintWriter(new FileWriter("./Form.html"));
 	}
 
-	private String addQuestion(Question question) {
+	private void addQuestion(Question question) {
 		
 		out.println(question.longQuestion + "\n");
+		String inputType = (question.multipleChoices) ? "checkbox" : "radio";
+		
 		for(Answer ans : question.answer) {
-			out.println("<input type=\"radio\" name=\"" + question.data + "\" value=\"" + ans.answer + "\"> " + ans.answer + "<br>");
+			out.println("<input type=\"" + inputType + "\" name=\"" + question.data + "\" value=\"" + ans.answer + "\"> " + ans.answer + "<br>\n");
 		}
-		return null;
 	}
 
-	protected void printForm(ArrayList<Question> questions) {
+	public void printForm(ArrayList<Question> questions) {
 		
 		out.println("<!DOCTYPE html>\n" + "<html lang=\"en\">\n" + "\n" + "<head>\n" + "    <meta charset=\"UTF-8\">\n"
 				+ "    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n"
@@ -46,7 +47,7 @@ public class FormCreator {
 				+ "        <input type=\"text\" name=\"lastname\">\n" + "        <br>\n" + "\n"
 				+ "        <input type=\"submit\" value=\"Submit\">\n");
 
-		// Printing triage questions here
+		for(Question q : questions) addQuestion(q);
 
 		out.println("</form>" + "</body>\n" + "\n" + "</html>");
 		out.close();
