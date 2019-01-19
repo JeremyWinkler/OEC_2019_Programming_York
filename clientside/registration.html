@@ -20,38 +20,46 @@
         <input type="date" id="date-of-birth" name="date-of-birth" value="2018-07-22" min="1918-01-01" max="2018-12-31">
         <br>
         Street Address:<br>
-        <input type="text" name="lastname">
+        <input type="text" name="street-add">
         <br>
         City:<br>
-        <input type="text" name="lastname">
+        <input type="text" name="city">
         <br>
-        State:<br>
-        <input type="text" name="lastname">
+        Province:<br>
+        <input type="text" name="province">
         <br>
         Postal Code:<br>
-        <input type="text" name="lastname">
+        <input type="text" name="postal">
         <br>
         Health Card Number:<br>
-        <input type="text" name="lastname">
+        <input type="text" name="health-card">
         <br>
         Cell Phone:<br>
-        <input type="text" name="lastname">
+        <input type="text" name="cell-phone">
         <br>
         Email Address:<br>
-        <input type="text" name="lastname">
+        <input type="text" name="email">
         <br>
         Race:<br>
-        <input type="text" name="lastname">
+        <input type="text" name="race">
         <br>
         Family Doctor Name:<br>
-        <input type="text" name="lastname">
+        <input type="text" name="fam-doctor">
         <br>
         Family Doctor City:<br>
-        <input type="text" name="lastname">
+        <input type="text" name="fam-doctor-city">
         <br>
 
-        <input type="submit" value="Submit">
-    </form>
+        <input type="submit" class="submit" value="Submit">
+    <script>
+        var text = "This is a test";
+        var x = new XHTMLHttpRequest(); //4321
+        x.open("POST", "http://localhost:6379");
+        
+        var button = document.querySelector(".submit");
+        
+        button.addEventListener(e => x.send(message));
+    </script>
 </body>
 
 </html>
