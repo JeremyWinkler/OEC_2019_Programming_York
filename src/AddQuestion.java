@@ -29,9 +29,6 @@ public class AddQuestion extends JFrame {
 		
 		mainPanel.add(new JLabel("Short Version of the Question"));
 		mainPanel.add(textField2 );
-		
-		JButton button = new JButton("Add");
-		 button.setActionCommand("Button1");
 		 
 		 String[] options = {"Yes", "No"};
 		 
@@ -49,10 +46,13 @@ public class AddQuestion extends JFrame {
 			});
 		 mainPanel.add(patternList);
 		 
-		 
+		 JButton button = new JButton("Add");
+		 button.setActionCommand("Button1");
 		 button.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					Question q = new Question(textField.getText(),textField2.getText(),choice);
+					AddAnswer ex = new AddAnswer();
+					ex.setVisible(true);
 				}
 	});
 		 mainPanel.add(button);
