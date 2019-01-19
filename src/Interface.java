@@ -1,10 +1,19 @@
-	import java.awt.*;
-	import java.awt.event.*;
-	import javax.swing.*;
-public class GUI {
+import javax.swing.*;
 
-	public class GridLayout extends JFrame { 
+
+public class Interface extends JFrame {
+
+	public Interface() {
 		
 		
+		JPanel mainPanel = new JPanel();
+		setSize(300, 200);
+		setContentPane(mainPanel);
+	}
+	
+
+	public static void main(String []args) {
+		Interface ex = new Interface();
+		ex.setVisible(true);
 	}
 }
