@@ -15,7 +15,7 @@ public class FormCreator {
 		
 		out.println(question.longQuestion + "\n");
 		for(Answer ans : question.answer) {
-			out.println("<input type=\"radio\" name=\"gender\" value=\"male\"> Male<br>");
+			out.println("<input type=\"radio\" name=\"" + question.data + "\" value=\"" + ans.answer + "\"> " + ans.answer + "<br>");
 		}
 		return null;
 	}
